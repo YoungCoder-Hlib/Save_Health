@@ -10,6 +10,16 @@ let flash= document.querySelector('#flash');
 let part1 = document.querySelector('#part1');
 let part2 = document.querySelector('#part2');
 let money = 1;
+let la = document.querySelector("#leftarrow");
+let ra = document.querySelector("#rightarrow");
+let imagero = document.querySelector("#imagero");
+let currentindex = 0;
+let arrayOfImages=[
+    'health.jpg',
+    'health1.jpg',
+    'health2.jpg',
+    'health3.jpg',
+];
 const arrayOfHealthAdvices = [
 '🥗 Харчуйтеся збалансовано – більше овочів, фруктів, білків та корисних жирів.',
 '🚶‍♂️ Будьте активними – рухайтеся щодня, займайтеся спортом чи просто гуляйте.',
@@ -106,5 +116,23 @@ btt.addEventListener("click", function(){
     money-=0.01;
     console.log("money:" + money);
     }
+});
+la.addEventListener("click", function(){
+    if(currentindex>0){
+        currentindex--;
+        imagero.style.backgroundImage = `url(${arrayOfImages[currentindex]})`;
+        console.log("yessir");
+    }
+});
+ra.addEventListener("click", function(){
+    currentindex++;
+ if(currentindex<arrayOfImages.length){
+    imagero.style.backgroundImage = `url(${arrayOfImages[currentindex]})`;
+ }
+ if(currentindex>=arrayOfImages.length){
+    currentindex = 0;
+    imagero.style.backgroundImage = `url(${arrayOfImages[currentindex]})`;
+ }
+ console.log("yessir1");
 });
 
