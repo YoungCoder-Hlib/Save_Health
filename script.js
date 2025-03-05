@@ -1,6 +1,6 @@
 let screamer = document.querySelector('#screamer');
 console.log('Script connected.');
-let kysengage = ['false', 'false', false, true];
+let kysengage = ['false', 'false', true, true];
 let CountOfHearts = 5;
 let saver = document.querySelector("#saver");
 let countjd = document.querySelector('#countjd');
