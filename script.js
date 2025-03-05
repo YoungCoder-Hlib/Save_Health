@@ -1,11 +1,11 @@
 let screamer = document.querySelector('#screamer');
 console.log('Script connected.');
-let kysengage = ['false', 'false'];
+let kysengage = ['false', 'false', false, true];
 let CountOfHearts = 5;
 let saver = document.querySelector("#saver");
 let countjd = document.querySelector('#countjd');
 let btt = document.querySelector('#BuyTheThingy');
-let pwishes = document.querySelector('#p_health');
+let phealth = document.querySelector('#p_health');
 let flash= document.querySelector('#flash');
 let part1 = document.querySelector('#part1');
 let part2 = document.querySelector('#part2');
@@ -25,15 +25,15 @@ const arrayOfHealthAdvices = [
 '🚭 Уникайте шкідливих звичок – куріння, надмірний алкоголь та фастфуд руйнують організм.',
 '🦷 Дбайте про гігієну – регулярне миття рук і догляд за зубами запобігають багатьом захворюванням.',
 ];
-
+let Morshu=document.querySelector("#Morshu");
 document.getElementById('btn_health').addEventListener('click', () => {
     // alert('Button clicked'); // Для тестування можна розкоментувати
     console.log("Smth should happen");
     if(CountOfHearts>0){
     CountOfHearts--;
     let index = Math.floor(Math.random() * arrayOfHealthAdvices.length);
-    pwishes.innerText = arrayOfHealthAdvices[index];
-    if(index==9&&kysengage[1]=="false"){
+    phealth.innerText = arrayOfHealthAdvices[index];
+    if(arrayOfHealthAdvices[index]=='YOU SHOULD KILL YOURSELF NOW!'&&kysengage[1]=="false"){
         screamer.style.display = "block";
         screamer.style.opacity = 1;
         setTimeout(function(){
@@ -59,7 +59,7 @@ document.getElementById('btn_health').addEventListener('click', () => {
             screamer.style.display = "none";
             kysengage[0] = 'true';
             kysengage[1] = 'true';
-            arrayOfHealthAdvices.splice(9, 1);
+            arrayOfHealthAdvices.splice(7, 1);
             console.log(arrayOfHealthAdvices);
             setTimeout(function(){
                 saver.style.display="block";
@@ -71,19 +71,30 @@ document.getElementById('btn_health').addEventListener('click', () => {
         }, 5000);
     }
     if(kysengage[0] == 'true'){
-        pwishes.innerText = "Just kidding, you are the best.";
+        phealth.innerText = "Just kidding, you are the best.";
         kysengage[0] = 'false';
     }
+}
+if(kysengage[3]==false){
+    part1.style.display="none";
+    part2.style.display="block";
+    Morshu.style.display="block";
+    kysengage[3]=true;
 }
 });
 setInterval(function(){
     if(CountOfHearts<=0){
-        part1.style.display="none";
-        part2.style.display="block";
+        kysengage[3]=false;
+        kysengage[2]=false;
     }
     if(CountOfHearts>0){
         part2.style.display="none";
         part1.style.display="block";
+        Morshu.style.display="none";
+        if(kysengage[2]==false){
+        phealth.innerText="Now you are good fella! Use 💊";
+        kysengage[2]=true;
+        }
     }
 });
 setInterval(function(){
