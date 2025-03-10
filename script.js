@@ -1,6 +1,6 @@
 let screamer = document.querySelector('#screamer');
 console.log('Script connected.');
-let kysengage = ['false', 'false', true, true];
+let kysengage = ['false', 'false', true, true, false];
 let CountOfHearts = 5;
 let saver = document.querySelector("#saver");
 let countjd = document.querySelector('#countjd');
@@ -35,6 +35,7 @@ const arrayOfHealthAdvices = [
 '🚭 Уникайте шкідливих звичок – куріння, надмірний алкоголь та фастфуд руйнують організм.',
 '🦷 Дбайте про гігієну – регулярне миття рук і догляд за зубами запобігають багатьом захворюванням.',
 ];
+
 let Morshu=document.querySelector("#Morshu");
 document.getElementById('btn_health').addEventListener('click', () => {
     // alert('Button clicked'); // Для тестування можна розкоментувати
@@ -44,8 +45,10 @@ document.getElementById('btn_health').addEventListener('click', () => {
     let index = Math.floor(Math.random() * arrayOfHealthAdvices.length);
     phealth.innerText = arrayOfHealthAdvices[index];
     if(arrayOfHealthAdvices[index]=='YOU SHOULD KILL YOURSELF NOW!'&&kysengage[1]=="false"){
+        kysengage[4]=true;
         screamer.style.display = "block";
         screamer.style.opacity = 1;
+        let F=setInterval(() => followAndZoom(screamer, 1), 50);
         setTimeout(function(){
             flash.style.opacity = 1;
             setTimeout(function(){
@@ -78,6 +81,8 @@ document.getElementById('btn_health').addEventListener('click', () => {
                 saver.style.display="none";
                 }, 2500);
             }, 100);
+            clearInterval(F);
+            kysengage[4]=false;
         }, 5000);
     }
     if(kysengage[0] == 'true'){
@@ -90,6 +95,9 @@ if(kysengage[3]==false){
     part2.style.display="block";
     Morshu.style.display="block";
     kysengage[3]=true;
+}
+if(kysengage[4]==false){
+    setTimeout(() => followAndZoom(btt, 1), 50);
 }
 });
 setInterval(function(){
@@ -112,9 +120,12 @@ setInterval(function(){
 }, 10)
 btt.addEventListener("click", function(){
     if(CountOfHearts<5){
-    CountOfHearts++;
-    money-=0.01;
+    money-=0.02;
     console.log("money:" + money);
+    CountOfHearts++;
+    }
+    if(kysengage[4]==false){
+        setTimeout(() => followAndZoom(btt, 1), 50);
     }
 });
 la.addEventListener("click", function(){
@@ -135,4 +146,16 @@ ra.addEventListener("click", function(){
  }
  console.log("yessir1");
 });
+function followAndZoom(object, zoomLevel) {
+    const rect = object.getBoundingClientRect();
+
+    window.scrollTo({
+        left: rect.left + window.scrollX - window.innerWidth / 2 + rect.width / 2,
+        top: rect.top + window.scrollY - window.innerHeight / 2 + rect.height / 2,
+        behavior: "smooth"
+    });
+
+    // Видаляємо масштабування body, щоб не ламати position: fixed
+    document.body.style.transform = ""; 
+}
 
