@@ -198,3 +198,12 @@ section{
   left: 10000px;
   background-color: #00e1ff;
 }
+.idi{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #999999;
+}
+#buytwo{
+  left: 70px;
+}

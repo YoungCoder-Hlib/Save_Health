@@ -129,11 +129,14 @@ btt.addEventListener("click", function(){
     }
 });
 la.addEventListener("click", function(){
-    if(currentindex>0){
-        currentindex--;
-        imagero.style.backgroundImage = `url(${arrayOfImages[currentindex]})`;
-        console.log("yessir");
-    }
+    currentindex--;
+ if(currentindex<arrayOfImages.length){
+    imagero.style.backgroundImage = `url(${arrayOfImages[currentindex]})`;
+ }
+ if(currentindex<0){
+    currentindex = 3;
+    imagero.style.backgroundImage = `url(${arrayOfImages[currentindex]})`;
+ }
 });
 ra.addEventListener("click", function(){
     currentindex++;
