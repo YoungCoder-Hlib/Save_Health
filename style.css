@@ -198,6 +198,20 @@ section{
   left: 10000px;
   background-color: #00e1ff;
 }
+#p-vitamins {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.vitamins {
+  border: #999999 1px solid;
+  box-shadow: 10px 10px #c4c4c4;
+  padding: 10px;
+  width: 150px;
+  height: 200px;
+}
 .idi{
   position: absolute;
   width: 30px;

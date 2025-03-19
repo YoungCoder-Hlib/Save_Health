@@ -161,4 +161,37 @@ function followAndZoom(object, zoomLevel) {
     // Видаляємо масштабування body, щоб не ламати position: fixed
     document.body.style.transform = ""; 
 }
+const arrayOfVitaminObjects = [
+{
+    "id": "1",
+    "title": "Vitamin B",
+    "photo": "",
+    "description": "",
+    "rating": "",
+    "useful": ""
+},
+{
+    "id": "2",
+    "title": "Omega D3",
+    "photo": "",
+    "description": "",
+    "rating": "",
+    "useful": ""
+},
+{
+    "id": "3",
+    "title": "Vitamin C",
+    "photo": "",
+    "description": "",
+    "rating": "",
+    "useful": ""
+}
+];
+arrayOfVitaminObjects.forEach((item) => {
+    console.log(item);
+    let divVitamin = document.createElement("div");
+    divVitamin.classList.add('vitamins');
+    divVitamin.innerText = item.title;
 
+    document.getElementById('p-vitamins').appendChild(divVitamin);
+});
