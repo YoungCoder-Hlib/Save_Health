@@ -187,11 +187,13 @@ const arrayOfVitaminObjects = [
     "useful": ""
 }
 ];
+let VitamineImages = ["vitamin.png"];
 arrayOfVitaminObjects.forEach((item) => {
     console.log(item);
     let divVitamin = document.createElement("div");
     divVitamin.classList.add('vitamins');
     divVitamin.innerText = item.title;
-
+    let image = document.createElement("img");
+    image.src = "vitamin.png";
     document.getElementById('p-vitamins').appendChild(divVitamin);
 });
