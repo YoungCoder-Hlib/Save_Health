@@ -185,8 +185,8 @@ const arrayOfVitaminObjects = [];
     document.getElementById('p-vitamins').appendChild(divVitamin);
     })
 })
-.catch(error => console.error('Something broke:', error))
-//let aovo = JSON.stringify(arrayOfVitaminObjects);;
+.catch(error => console.error('Something broke:', error));
+//let aovo = JSON.stringify(arrayOfVitaminObjects);
 
 //console.log(arrayOfVitaminObjects);
 
