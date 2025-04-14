@@ -1,10 +1,10 @@
 .sectstyle{
     text-align: center;
     position: absolute;
-    left: 35%;
+    left: 28%;
     background: transparent;
     background: rgba(224, 147, 160, 0.5);
-    width: 500px;
+    width: 800px;
     justify-content: center;
 }
 .h1s{
@@ -92,6 +92,7 @@ body{
 #p_health{
   font-family: 'Comic Sans Ms';
   font-size: 20px;
+  height: 150px;
 }
 #screamer {
   width: 100vw;
@@ -150,7 +151,7 @@ section{
   position: absolute;
   background-image: url(giphy.gif);
   top: 1100px;
-  left: 1100px;
+  left: 70%;
   display: none;
 }
 .images{
@@ -182,6 +183,7 @@ section{
 #intsca{
   width: 450px;
   height: 300px;
+  left: 20%;
   position: relative;
 }
 #test{
@@ -208,10 +210,13 @@ section{
 .vitamins {
   border: #999999 1px solid;
   box-shadow: 10px 10px #c4c4c4;
-  padding: 10px;
-  width: 150px;
-  height: 200px;
+  padding: 20px;
+  width: 45%;
+  height: 450px;
   background-color: #00e1ff;
+  gap: 20px;
+  transition: all;
+  transition-duration: 1s;
 }
 .idi{
   position: absolute;
@@ -221,4 +226,35 @@ section{
 }
 #buytwo{
   left: 70px;
+}
+.vitaminsimg{
+   width: 100px;
+   height: 100px;
+}
+.vitamins:hover{
+  transform: scale(1.1);
+}
+.vitamins:hover #ggg{
+  color: blue;
+}
+.vitamins img{
+  transition-duration: 1s;
+}
+.vitamins div{
+  opacity: 0;
+  transition-duration: 1.5s;
+}
+.vitamins div:hover{
+  opacity: 1;
+}
+#imp77{
+  opacity: 0;
+  transition-duration: 1s;
+}
+#imp77:hover{
+  opacity: 1;
+}
+.vitamins img:hover{
+  scale: 1.2;
+  rotate: 25deg;
 }
